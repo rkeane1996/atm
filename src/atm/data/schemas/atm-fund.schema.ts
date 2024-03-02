@@ -6,7 +6,7 @@ export class AtmFund {
   @Prop()
   atmFundId?: string;
 
-  @Prop({ required: true })
+  @Prop({ required: true, max: 30000})
   totalFunds: number;
 
   @Prop({ required: true })

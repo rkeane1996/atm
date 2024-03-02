@@ -12,10 +12,13 @@ export class Transaction {
   userId: number;
 
   @Prop({ required: true })
+  transactionType: string;
+
+  @Prop({ required: true })
   transactionAmount: number;
 
   @Prop({ required: false })
-  notesDispensed: Map<Money, number>;
+  notes: Map<Money, number>;
 
   @Prop({ required: true })
   status: TransactionStatus;

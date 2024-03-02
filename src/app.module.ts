@@ -11,7 +11,8 @@ require('dotenv').config();
     AtmModule, 
     MongooseModule.forRoot(process.env.MONGODB_URI), 
     AccountModule, 
-    TransactionModule, AuthModule
+    TransactionModule, 
+    AuthModule
   ],
   controllers: [],
   providers: [],

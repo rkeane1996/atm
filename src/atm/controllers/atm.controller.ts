@@ -6,4 +6,6 @@ import { AtmService } from '../services/atm.service';
 export class AtmController {
   constructor(private atmService: AtmService) {}
 
+
+  //addfunds only bank manager can do this
 }

@@ -1,4 +1,4 @@
-import { Money } from '../../data/enums/money.enum';
+import { Money } from '../../atm/data/enums/money.enum';
 
 export class WithdrawMoneyResponseDto {
   constructor(notesDispensed: Map<Money, number>) {
