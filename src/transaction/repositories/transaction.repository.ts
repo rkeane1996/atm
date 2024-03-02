@@ -16,39 +16,13 @@ export class TransactionRepoistory {
       const newTransaction = await this.transactionModel.create({
         userId: transaction.userId,
         transactionAmount: transaction.transactionAmount,
-        notesDispensed: transaction.notesDispensed,
+        notes: transaction.notes,
         status: transaction.status,
       });
       console.log('Transaction Created:', newTransaction);
       return newTransaction;
     } catch (error) {
       console.error('Error adding transaction:', error);
-      throw error;
-    }
-  }
-
-  async completeTransaction(
-    _id: string,
-    transaction: TransactionDto,
-  ) {
-    console.log("🚀 ~ file: transaction.repository.ts:34 ~ TransactionRepoistory ~ transactionId:", _id)
-    try {
-      const updatedUser = await this.transactionModel
-        .updateOne(
-          { _id },
-          {
-            $set: {
-              notesDispensed: transaction.notesDispensed,
-              status: transaction.status,
-            },
-          },
-          { new: true },
-        )
-        .exec();
-
-      return updatedUser;
-    } catch (error) {
-      console.error('Error updating balance:', error);
       throw error;
     }
   }

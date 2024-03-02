@@ -11,6 +11,7 @@ import { AtmFundRepository } from './repositories/atm-fund.repository';
     AtmService,
     AtmFundRepository,
   ],
+  exports:[ AtmService ],
   imports: [
     MongooseModule.forFeature([
       { name: AtmFund.name, schema: AtmFundSchema },

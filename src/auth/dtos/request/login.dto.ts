@@ -9,5 +9,5 @@ export class LoginDTO {
   @IsNotEmpty()
   @IsNumber()
   @IsDefined()
-  readonly pin: number;
+  readonly pin: string;
 }

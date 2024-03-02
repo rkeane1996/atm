@@ -11,6 +11,7 @@ import { AccountRepository } from './repository/account.repository';
     AccountService,
     AccountRepository
   ],
+  exports:[ AccountService],
   imports: [
     MongooseModule.forFeature([
       { name: Account.name, schema: AccountSchema },

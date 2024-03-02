@@ -1,7 +1,9 @@
-import { Controller, Put, UseGuards } from '@nestjs/common';
+import { Body, Controller, Put, UseGuards } from '@nestjs/common';
 import { TransactionService } from '../service/transaction.service';
-import { WithdrawMoneyResponseDto } from 'src/atm/dtos/response/withdraw-money.response';
+import { WithdrawMoneyResponseDto } from 'src/transaction/dtos/withdraw-money.response';
 import { AuthGuard } from 'src/auth/auth.guard';
+import { LodgeMoneyRequestDto } from '../dtos/lodgement-request.dto';
+import { WithdrawMoneyRequestDto } from '../dtos/withdraw-request.dto';
 
 @Controller('transaction')
 export class TransactionController {
@@ -10,16 +12,16 @@ export class TransactionController {
     @UseGuards(AuthGuard)
     @Put('/withdraw')
     async withdrawMoney(
-        //detais in request body
+        @Body() request: WithdrawMoneyRequestDto
     ): Promise<WithdrawMoneyResponseDto | Error> {
-        return await this.transactionService.performWithdrawTransaction() as unknown as WithdrawMoneyResponseDto;
+        return await this.transactionService.performWithdrawTransaction(request) as unknown as WithdrawMoneyResponseDto;
     }
 
     @UseGuards(AuthGuard)
     @Put('/lodge')
     async lodgeMoney(
-        //details in request body
+        @Body() request: LodgeMoneyRequestDto
     ): Promise<WithdrawMoneyResponseDto | Error> {
-        return await this.transactionService.performLodgementTransaction() as unknown as WithdrawMoneyResponseDto;
+        return await this.transactionService.performLodgementTransaction(request) as unknown as WithdrawMoneyResponseDto;
     }
 }
