@@ -7,5 +7,4 @@ export class AtmFundDto implements AtmFund {
     numTwentyEuroNotes: number;
     numTenEuroNotes: number;
     numFiveEuroNotes: number;
-    
 }

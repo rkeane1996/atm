@@ -12,7 +12,7 @@ require('dotenv').config();
     MongooseModule.forRoot(process.env.MONGODB_URI), 
     AccountModule, 
     TransactionModule, 
-    AuthModule
+    AuthModule,
   ],
   controllers: [],
   providers: [],
