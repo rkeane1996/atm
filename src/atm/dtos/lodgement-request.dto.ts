@@ -8,7 +8,6 @@ export class LodgeMoneyRequestDto {
     readonly lodgementAmount: number;
 
     @IsNotEmpty()
-    @IsNumber()
     @IsDefined()
     readonly notes: Map<Money, number>;
 
